@@ -44,8 +44,8 @@ RUN curl -s "https://packagecloud.io/install/repositories/phalcon/stable/script.
 RUN apt-get install -y php7.2-phalcon
 
 #custom config php
-COPY php-nimdasx.ini /etc/php/7.2/cli/php-nimdasx.ini
-COPY php-nimdasx.ini /etc/php/7.2/apache2/php-nimdasx.ini
+COPY php-nimdasx.ini /etc/php/7.2/cli/conf.d/60-php-nimdasx.ini
+COPY php-nimdasx.ini /etc/php/7.2/apache2/conf.d/60-php-nimdasx.ini
 
 # konfigurasi apache
 RUN a2enmod rewrite
