@@ -3,9 +3,11 @@ FROM ubuntu
 LABEL maintainer="nimdasx@gmail.com"
 LABEL description="Ubuntu Latest Apache PHP 7.2 Phalcon 4"
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 #update
 RUN apt-get -y update \
-&& apt-get install -y --no-install-recommends \
+&& apt-get install -y \
 curl \
 tzdata \
 git \
@@ -21,11 +23,11 @@ php7.2-mysql \
 php7.2-curl \
 php7.2-xml \
 php7.2-mbstring \
-php7.2-zip
+php7.2-zip \
+&& rm -rf /var/lib/apt/lists/*
 
 #set timezone
-RUN echo "Asia/Jakarta" | tee /etc/timezone
-RUN dpkg-reconfigure --frontend noninteractive tzdata
+RUN ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
 
 #install psr (phalcon butuh ini)
 WORKDIR /usr/src
@@ -53,9 +55,6 @@ RUN sed -i '/<Directory \/var\/www\/>/,/<\/Directory>/ s/AllowOverride None/Allo
 #rapenting
 COPY telo.php /var/www/html/
 
-#clean up
-RUN apt-get clean
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /usr/share/doc/*
-
 WORKDIR /var/www/html
-CMD ["apache2ctl", "-DFOREGROUND"]
+EXPOSE 80
+CMD ["/usr/sbin/apache2ctl", "-DFOREGROUND"]
