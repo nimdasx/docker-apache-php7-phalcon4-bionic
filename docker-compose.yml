@@ -1,0 +1,15 @@
+version: "3.7"
+services:
+    baceman:
+        container_name: sf-phalcon-4
+        image: nimdasx/sf-phalcon-4
+        ports:
+            - 80:80
+        volumes:
+            - D:/dev/php:/var/www/html
+        networks:
+            - sf_network
+        restart: always
+networks:
+    sf_network:
+        name: sf_network
