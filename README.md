@@ -17,8 +17,6 @@ matikan
 `docker rm -f sekarepmu`
 ## catatan pribadi / abaikan saja
 ````
-docker build --tag nimdasx/sf-phalcon-4 .
-docker push nimdasx/sf-phalcon-4
 docker run -d -p 80:80 --name sf-phalcon-4 nimdasx/sf-phalcon-4
 docker exec -it sf-phalcon-4 tail -f /var/log/apache2/access.log
 docker exec -it sf-phalcon-4 /bin/bash
