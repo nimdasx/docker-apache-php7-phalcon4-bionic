@@ -1,8 +1,9 @@
 version: "3.7"
 services:
     baceman:
-        container_name: sf-phalcon-4
-        image: nimdasx/sf-phalcon-4
+        build : .
+        container_name: sf-phalcon-4-container
+        image: nimdasx/sf-phalcon-4:latest
         ports:
             - 80:80
         volumes:

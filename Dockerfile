@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:latest
 
 LABEL maintainer="nimdasx@gmail.com"
 LABEL description="Ubuntu Latest Apache PHP 7.2 Phalcon 4"
