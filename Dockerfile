@@ -1,7 +1,7 @@
-FROM ubuntu:latest
+FROM ubuntu:bionic
 
 LABEL maintainer="nimdasx@gmail.com"
-LABEL description="Ubuntu Latest Apache PHP 7.2 Phalcon 4"
+LABEL description="Ubuntu Bionic Apache PHP 7.2 Phalcon 4"
 
 ARG DEBIAN_FRONTEND=noninteractive
 

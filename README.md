@@ -1,5 +1,6 @@
 # phalcon 4 php apache
-from ubuntu  
+## intro
+from ubuntu:bionic  
 - apache2  
 - php7.2  
 - phalcon4
@@ -21,4 +22,5 @@ docker run -d -p 80:80 --name sf-phalcon-4 nimdasx/sf-phalcon-4
 docker exec -it sf-phalcon-4 tail -f /var/log/apache2/access.log
 docker exec -it sf-phalcon-4 /bin/bash
 docker rm -f sf-phalcon-4
+docker build --tag nimdasx/sf-phalcon-4 .
 ````
